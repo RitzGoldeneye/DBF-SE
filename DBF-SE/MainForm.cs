@@ -10,12 +10,14 @@ using System.Windows.Forms;
 
 namespace DBF_SE
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        private string FilePath { get; set; }
+        public MainForm()
         {
             InitializeComponent();
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -49,6 +51,41 @@ namespace DBF_SE
                     //Close dialog and do nothing
                 }
             }
+        }
+
+        private void charactersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           CharactersForm form = new CharactersForm();
+            form.Show();
+        }
+
+        private void outfitsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OutfitsForm form = new OutfitsForm();
+             form.Show();
+        }
+
+        private void movesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MovesForm form = new MovesForm();
+            form.Show();
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Get The save file to be opened
+            OpenFileDialog OpenDialog = new OpenFileDialog();
+            OpenDialog.Filter = "All Files (*.*)|*.*";
+            OpenDialog.FilterIndex = 1;
+
+            if (OpenDialog.ShowDialog() != DialogResult.OK)
+            {
+                OpenDialog.Dispose();
+                return;
+            }
+            FilePath = OpenDialog.FileName;
+            MainForm.ActiveForm.Text = "DBF-SE - " +FilePath;
+            //Show Open File in header
         }
     }
 }
