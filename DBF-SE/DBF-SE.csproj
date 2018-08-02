@@ -51,12 +51,14 @@
     <Compile Include="CharactersForm.designer.cs">
       <DependentUpon>CharactersForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CodeFile1.cs" />
     <Compile Include="MovesForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MovesForm.Designer.cs">
       <DependentUpon>MovesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Offsets.cs" />
     <Compile Include="OutfitsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +70,9 @@
     </Compile>
     <Compile Include="MainForm.designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Page1.xaml.cs">
+      <DependentUpon>Page1.xaml</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -104,6 +109,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Page1.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

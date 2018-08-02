@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -86,6 +87,13 @@ namespace DBF_SE
             FilePath = OpenDialog.FileName;
             MainForm.ActiveForm.Text = "DBF-SE - " +FilePath;
             //Show Open File in header
+
+            //Load File into memory
+            using (var saveFS = new FileStream(FilePath, FileMode.Open))
+            {
+                var saveMS = new MemoryStream();
+                saveFS.CopyTo(saveMS);
+            }
         }
     }
 }
