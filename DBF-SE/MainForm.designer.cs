@@ -43,7 +43,14 @@
             this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.wikiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.CharNameLabel = new System.Windows.Forms.Label();
+            this.CharNameBox = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ExitButton
@@ -82,7 +89,7 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -125,14 +132,14 @@
             // outfitsToolStripMenuItem
             // 
             this.outfitsToolStripMenuItem.Name = "outfitsToolStripMenuItem";
-            this.outfitsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.outfitsToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.outfitsToolStripMenuItem.Text = "Outfits";
             this.outfitsToolStripMenuItem.Click += new System.EventHandler(this.outfitsToolStripMenuItem_Click);
             // 
             // movesToolStripMenuItem
             // 
             this.movesToolStripMenuItem.Name = "movesToolStripMenuItem";
-            this.movesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.movesToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.movesToolStripMenuItem.Text = "Moves";
             this.movesToolStripMenuItem.Click += new System.EventHandler(this.movesToolStripMenuItem_Click);
             // 
@@ -164,17 +171,56 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Location = new System.Drawing.Point(12, 39);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.CharNameLabel);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.CharNameBox);
+            this.splitContainer1.Size = new System.Drawing.Size(194, 207);
+            this.splitContainer1.SplitterDistance = 72;
+            this.splitContainer1.TabIndex = 3;
+            // 
+            // CharNameLabel
+            // 
+            this.CharNameLabel.AutoSize = true;
+            this.CharNameLabel.Location = new System.Drawing.Point(3, 10);
+            this.CharNameLabel.Name = "CharNameLabel";
+            this.CharNameLabel.Size = new System.Drawing.Size(35, 13);
+            this.CharNameLabel.TabIndex = 0;
+            this.CharNameLabel.Text = "Name";
+            // 
+            // CharNameBox
+            // 
+            this.CharNameBox.Location = new System.Drawing.Point(3, 7);
+            this.CharNameBox.Name = "CharNameBox";
+            this.CharNameBox.Size = new System.Drawing.Size(100, 20);
+            this.CharNameBox.TabIndex = 4;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.menuStrip1);
             this.Name = "MainForm";
             this.Text = "DBF-SE";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -197,6 +243,9 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem wikiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.Label CharNameLabel;
+        private System.Windows.Forms.TextBox CharNameBox;
     }
 }
 

@@ -8,17 +8,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DBF_SE;
 
 namespace DBF_SE
 {
     public partial class MainForm : Form
     {
         private string FilePath { get; set; }
-        public MainForm()
+        public string CharName { get; set; }
+        public BinaryReader SaveBin { get; set; }
+        public FileStream saveFS { get; set; }
+        public MemoryStream saveMS { get; set; }
+        
+
+                public MainForm()
         {
             InitializeComponent();
         }
-
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -76,8 +82,9 @@ namespace DBF_SE
         {
             //Get The save file to be opened
             OpenFileDialog OpenDialog = new OpenFileDialog();
-            OpenDialog.Filter = "All Files (*.*)|*.*";
+            OpenDialog.Filter = "Dragon Ball Fusions Saves (*.jprm)|*.jprm|" + "All Files (*.*)|*.*";
             OpenDialog.FilterIndex = 1;
+            OpenDialog.Multiselect = true;
 
             if (OpenDialog.ShowDialog() != DialogResult.OK)
             {
@@ -85,15 +92,29 @@ namespace DBF_SE
                 return;
             }
             FilePath = OpenDialog.FileName;
-            MainForm.ActiveForm.Text = "DBF-SE - " +FilePath;
+            MainForm.ActiveForm.Text = "DBF-SE - " + FilePath;
             //Show Open File in header
 
             //Load File into memory
             using (var saveFS = new FileStream(FilePath, FileMode.Open))
             {
+
                 var saveMS = new MemoryStream();
                 saveFS.CopyTo(saveMS);
-            }
+                //Create a readable binary Stream 
+
+                SaveBin = new BinaryReader(saveMS);
+                SaveBin.BaseStream.Seek(Offsets.Name_Offset, SeekOrigin.Begin);
+                CharName = Encoding.Unicode.GetString(SaveBin.ReadBytes(54));
+                CharNameBox.Text = CharName;
+                MainForm.ActiveForm.Text = "DBF-SE - " + FilePath + " - " + CharName;
+            }  
+ 
+
+
+
+
+
         }
     }
 }

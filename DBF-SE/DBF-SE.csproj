@@ -66,6 +66,7 @@
     <Compile Include="CharactersForm.designer.cs">
       <DependentUpon>CharactersForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="saveReader.cs" />
     <Compile Include="MovesForm.cs">
       <SubType>Form</SubType>
     </Compile>
